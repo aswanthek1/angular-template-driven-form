@@ -13,10 +13,17 @@ import { FormsModule, NgForm } from '@angular/forms';
 export class AppComponent {
   title = 'template-driven-form';
 
-  firstName:string = ''
-  lastName:string = ''
-  emailAddress:string = ''
-  dob:string = ''
+  firstName: string = '';
+  lastName: string = '';
+  dob: string = '';
+  emailAddress: string = '';
+  gender: string = '';
+  country: string = '';
+  city: string = '';
+  region: string = '';
+  postal: string = '';
+  userName: string = '';
+  isAgreed:boolean = false;
 
   @ViewChild('registrationForm') form!: NgForm
 
@@ -27,7 +34,25 @@ export class AppComponent {
   ]
 
   onFormSubmitted() {
-console.log(this.form)
+      console.log(this.form)
+
+  //  this.form.form.patchValue({
+  //   gender:'male',
+  //   address: {
+  //     country:'India'
+  //   }
+  //  })
+  this.firstName = this.form.value.firstname;
+  this.lastName = this.form.value.lastname;
+  this.emailAddress = this.form.value.email;
+  this.country = this.form.value.address.country;
+  this.city = this.form.value.address.city;
+  this.region = this.form.value.address.region;
+  this.postal = this.form.value.address.postal;
+  this.userName = this.form.value.username;
+  this.dob = this.form.value.dob;
+  this.isAgreed = this.form.value.agreement
+  // this.form.reset()
   }
 
   generateUsername() {

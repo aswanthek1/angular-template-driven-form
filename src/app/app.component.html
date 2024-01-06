@@ -7,7 +7,6 @@
         <input required name="firstname" type="text" 
            placeholder="First Name" #fname="ngModel" 
            ngModel
-           [(ngModel)]="firstName"
          />
         <div>
           <small *ngIf="fname.invalid && fname.touched">First Name is a requried field</small>
@@ -18,7 +17,7 @@
         <input required name="lastname" 
         type="text" placeholder="Last Name" 
         #lname="ngModel" ngModel 
-        [(ngModel)]="lastName"
+       
       />
         <div>
           <small *ngIf="lname.invalid && lname.touched">Last Name is a requried field</small>
@@ -31,7 +30,7 @@
       <input required email name="email" type="text" 
       placeholder="Email" #email="ngModel" 
       ngModel 
-      [(ngModel)]="emailAddress"
+    
     />
       <div>
         <small *ngIf="email.invalid && email.touched">Email is not valid</small>
@@ -44,7 +43,7 @@
         <input name="phone" type="number" placeholder="Phone Number" ngModel />
       </div>
       <div class="input-box">
-        <input required name="dob" type="date" placeholder="Date of Birth" ngModel  #tempdob="ngModel" [(ngModel)]="dob" />
+        <input required name="dob" type="date" placeholder="Date of Birth" ngModel  #tempdob="ngModel" />
       </div>
     </div>
 
@@ -92,8 +91,35 @@
         <input name="region" type="text" placeholder="Region" ngModel />
         <input required name="postal" type="number" placeholder="Postal code" ngModel  />
       </div>
+      <div class="column">
+        <input type="checkbox" name="agreement" [ngModel]="isAgreed">
+        <label for="agreement"> I agree to terms & conditions</label><br>
+      </div>
     </div>
     <small *ngIf="addr.invalid && addr.touched" >Some of the address fileds don't contain a valid value</small>
     <input type="submit" value="Submit" class="submit-btn"> 
   </form>
+</section>
+
+<section class="user-detail-container">
+  <div class="user-details-container">
+    <div class="user-avatar">
+      <p>{{firstName.slice(0, 1).toUpperCase()}}{{lastName.slice(0, 1).toUpperCase()}}</p>
+    </div>
+    <div class="user-details">
+      <div class="user-name">
+        <h2>{{ firstName }} {{ lastName }}</h2>
+      </div>
+      <p><b>Email:</b> {{ emailAddress}}</p>
+      <p><b>Username:</b> {{ userName }} </p>
+      <p><b>Date of birth:</b> {{ dob }}</p>
+      <div class="user-name">
+        <h3>Address</h3>
+      </div>
+      <span>{{country }}</span>.
+      <span>{{ city }}</span>.
+      <span>{{ region }}</span>.
+      <span> {{ postal }}</span>
+    </div>
+  </div>
 </section>
