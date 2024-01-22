@@ -1,19 +1,16 @@
-
-import { CommonModule, NgFor } from '@angular/common';
-import { RouterModule, RouterOutlet } from '@angular/router';
-import { FormsModule, NgForm } from '@angular/forms';
 import { Component, ViewChild } from '@angular/core';
+import { CommonModule, NgFor } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-template-form',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, FormsModule, RouterModule],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  imports: [CommonModule, RouterOutlet, FormsModule],
+  templateUrl: './template-form.component.html',
+  styleUrl: './template-form.component.css'
 })
-export class AppComponent {
-  title = 'template-driven-form';
-
+export class TemplateFormComponent {
   firstName: string = '';
   lastName: string = '';
   dob: string = '';
